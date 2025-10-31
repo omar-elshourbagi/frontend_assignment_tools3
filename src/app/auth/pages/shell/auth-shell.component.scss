@@ -1,0 +1,86 @@
+.auth-stage {
+  position: relative;
+  max-width: 1100px;
+  margin: 40px auto;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  min-height: 560px;
+}
+
+.forms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay container occupies half the card and slides side-to-side */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+  transition: transform 600ms ease;
+  border-radius: 260px 0 0 260px;
+}
+
+.auth-stage.sign-up-mode .overlay-container {
+  transform: translateX(-100%);
+  border-radius: 0 260px 260px 0;
+}
+
+.overlay {
+  background: linear-gradient(135deg, #3b2ea1 0%, #5d3fd3 60%, #7b5df0 100%);
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 600ms ease;
+}
+
+.auth-stage.sign-up-mode .overlay {
+  transform: translateX(50%);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  text-align: center;
+  padding: 32px;
+}
+
+.panel-left { position: absolute; left: 0; width: 50%; height: 100%; }
+.panel-right { position: absolute; right: 0; width: 50%; height: 100%; }
+
+.btn.outline {
+  pointer-events: auto;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .forms { grid-template-columns: 1fr; }
+  .overlay-container { display: none; }
+  .auth-stage { min-height: auto; }
+}
+
+

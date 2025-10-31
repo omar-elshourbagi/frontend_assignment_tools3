@@ -1,0 +1,16 @@
+Team Members:
+1) NAME1 - ID1
+2) NAME2 - ID2
+3) NAME3 - ID3
+
+TA: TA_NAME
+
+Repositories:
+- Frontend (Angular): <REPLACE_WITH_FRONTEND_GITHUB_URL>
+- Backend (API): <REPLACE_WITH_BACKEND_GITHUB_URL>
+
+Notes:
+- Please ensure the TA is added as a collaborator on both repositories.
+- Any commits after the deadline are considered late submissions.
+
+

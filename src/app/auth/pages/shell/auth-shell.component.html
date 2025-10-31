@@ -1,0 +1,29 @@
+<section class="auth-stage" [class.sign-up-mode]="mode === 'register'">
+  <!-- Forms side-by-side -->
+  <div class="forms">
+    <div class="form login-form">
+      <app-login></app-login>
+    </div>
+    <div class="form register-form">
+      <app-register></app-register>
+    </div>
+  </div>
+
+  <!-- Sliding overlay with CTA (curved purple) -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="panel panel-left">
+        <h2>Welcome Back!</h2>
+        <p>Enter your personal details to use all of site features</p>
+        <button class="btn outline" (click)="goLogin()">SIGN IN</button>
+      </div>
+      <div class="panel panel-right">
+        <h2>Hello, Friend!</h2>
+        <p>Register with your personal details to use all of site features</p>
+        <button class="btn outline" (click)="goRegister()">SIGN UP</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
