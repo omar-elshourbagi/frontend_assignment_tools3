@@ -1,0 +1,103 @@
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
+              url('/assets/bg-cityscape.jpg') center/cover no-repeat fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-header {
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.auth-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.auth-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+}
+
+.auth-toggle {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 18px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: #111827;
+  background: #f9fafb;
+}
+
+.toggle-btn.active {
+  color: #ff6b35;
+}
+
+.toggle-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #ff6b35;
+}
+
+.form-wrapper {
+  padding: 40px;
+}
+
+@media (max-width: 640px) {
+  .auth-header {
+    padding: 20px;
+  }
+  
+  .auth-card {
+    max-width: 100%;
+    margin: 0 16px;
+  }
+  
+  .form-wrapper {
+    padding: 24px;
+  }
+}
+
+

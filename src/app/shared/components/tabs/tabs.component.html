@@ -1,0 +1,13 @@
+<div class="tabs-container">
+  <a
+    *ngFor="let tab of tabs"
+    [routerLink]="tab.route"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="tab"
+  >
+    {{ tab.label }}
+    <span class="count" *ngIf="tab.count !== undefined">({{ tab.count }})</span>
+  </a>
+</div>
+

@@ -1,0 +1,15 @@
+<header class="navbar">
+  <div class="navbar-left">
+    <h1 class="logo" routerLink="/dashboard">Omar's Planner</h1>
+    <p class="welcome">Welcome back, {{ userName }}</p>
+  </div>
+  <div class="navbar-right">
+    <button class="btn-create" routerLink="/events/create">
+      <span class="btn-text">Create Event</span>
+    </button>
+    <button class="btn-icon logout-btn" (click)="logout()">
+      <span class="btn-text">Logout</span>
+    </button>
+  </div>
+</header>
+

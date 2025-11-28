@@ -1,0 +1,37 @@
+<div class="auth-page">
+  <!-- Header matching dashboard -->
+  <header class="auth-header">
+    <div class="header-left">
+      <h1 class="logo">Omar's Planner</h1>
+    </div>
+  </header>
+
+  <!-- Auth form container -->
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-toggle">
+        <button 
+          class="toggle-btn" 
+          [class.active]="mode === 'login'"
+          (click)="goLogin()">
+          Sign In
+        </button>
+        <button 
+          class="toggle-btn" 
+          [class.active]="mode === 'register'"
+          (click)="goRegister()">
+          Sign Up
+        </button>
+      </div>
+
+      <div class="form-wrapper" *ngIf="mode === 'login'">
+        <app-login></app-login>
+      </div>
+      <div class="form-wrapper" *ngIf="mode === 'register'">
+        <app-register></app-register>
+      </div>
+    </div>
+  </div>
+</div>
+
+

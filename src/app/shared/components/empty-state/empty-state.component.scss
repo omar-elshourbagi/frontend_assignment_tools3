@@ -1,0 +1,32 @@
+.empty-state {
+  text-align: center;
+  padding: 60px 40px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.empty-message {
+  color: #6b7280;
+  font-size: 18px;
+  margin: 0 0 24px 0;
+}
+
+.btn-create-first {
+  background: #ff6b35;
+  border: none;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.btn-create-first:hover {
+  background: #ff5722;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+}
+
