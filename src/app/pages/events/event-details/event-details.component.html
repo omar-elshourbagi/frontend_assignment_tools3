@@ -7,7 +7,7 @@
   <div *ngIf="!loading && event" class="details-card">
     <div class="details-header">
       <button class="back-btn" (click)="goBack()">
-        ← Back to Dashboard
+        Back to Dashboard
       </button>
       <app-button
         variant="outline"
@@ -22,7 +22,6 @@
 
       <div class="event-meta">
         <div class="meta-item">
-          <span class="icon">📅</span>
           <div class="meta-content">
             <span class="meta-label">Date</span>
             <span class="meta-value">{{ event.date }}</span>
@@ -30,7 +29,6 @@
         </div>
 
         <div class="meta-item">
-          <span class="icon">🕒</span>
           <div class="meta-content">
             <span class="meta-label">Time</span>
             <span class="meta-value">{{ event.time }}</span>
@@ -38,7 +36,6 @@
         </div>
 
         <div class="meta-item">
-          <span class="icon">📍</span>
           <div class="meta-content">
             <span class="meta-label">Location</span>
             <span class="meta-value">{{ event.location }}</span>

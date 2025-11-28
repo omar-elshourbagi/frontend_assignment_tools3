@@ -50,13 +50,14 @@
 .event-detail {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: #6b7280;
   font-size: 14px;
 }
 
-.event-detail .icon {
-  font-size: 16px;
+.event-detail .label {
+  font-weight: 600;
+  color: #374151;
 }
 
 .event-description {

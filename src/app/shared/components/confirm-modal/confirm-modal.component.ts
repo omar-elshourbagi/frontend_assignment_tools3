@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
   template: `
     <div class="modal-backdrop" (click)="onBackdropClick($event)">
       <div class="modal-content">
-        <div class="modal-icon">⚠️</div>
         <h2 class="modal-title">{{ title }}</h2>
         <p class="modal-message">{{ message }}</p>
         <div class="modal-actions">
@@ -56,11 +55,6 @@ import { CommonModule } from '@angular/common';
         opacity: 1;
         transform: translateY(0) scale(1);
       }
-    }
-
-    .modal-icon {
-      font-size: 64px;
-      margin-bottom: 16px;
     }
 
     .modal-title {

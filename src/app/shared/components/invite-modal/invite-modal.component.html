@@ -3,13 +3,12 @@
     <div class="modal-header">
       <h2 class="modal-title">Invite People</h2>
       <p class="modal-subtitle">to {{ eventTitle }}</p>
-      <button class="close-btn" (click)="closeModal()">✕</button>
+      <button class="close-btn" (click)="closeModal()">Close</button>
     </div>
 
     <div class="modal-body">
       <!-- Search Bar -->
       <div class="search-container">
-        <span class="search-icon">🔍</span>
         <input
           type="text"
           class="search-input"
@@ -21,7 +20,7 @@
 
       <!-- Success/Error Messages -->
       <div class="success-message" *ngIf="successMessage">
-        ✓ {{ successMessage }}
+        {{ successMessage }}
       </div>
       <div class="error-message" *ngIf="errorMessage">
         {{ errorMessage }}
@@ -55,7 +54,7 @@
             <span class="user-email">{{ user.email }}</span>
           </div>
           <div class="select-indicator" *ngIf="selectedUser?.id === user.id">
-            ✓
+            Selected
           </div>
         </div>
       </div>

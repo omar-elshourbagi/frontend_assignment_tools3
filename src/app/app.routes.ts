@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
-import { AuthShellComponent } from './auth/pages/shell/auth-shell.component';
+import { AuthShellComponent } from './pages/auth/shell/auth-shell.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { AllEventsComponent } from './features/dashboard/pages/all-events/all-events.component';
-import { OrganizedEventsComponent } from './features/dashboard/pages/organized-events/organized-events.component';
-import { InvitedEventsComponent } from './features/dashboard/pages/invited-events/invited-events.component';
-import { CreateEventComponent } from './features/events/pages/create-event/create-event.component';
-import { EventDetailsComponent } from './features/events/pages/event-details/event-details.component';
+import { AllEventsComponent } from './pages/dashboard/all-events/all-events.component';
+import { OrganizedEventsComponent } from './pages/dashboard/organized-events/organized-events.component';
+import { InvitedEventsComponent } from './pages/dashboard/invited-events/invited-events.component';
+import { CreateEventComponent } from './pages/events/create-event/create-event.component';
+import { EventDetailsComponent } from './pages/events/event-details/event-details.component';
 
 export const routes: Routes = [
   { path: 'auth', redirectTo: 'auth/login', pathMatch: 'full' },

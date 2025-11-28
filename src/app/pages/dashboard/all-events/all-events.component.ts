@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { TabsComponent, Tab } from '../../../../shared/components/tabs/tabs.component';
-import { SearchBarComponent } from '../../../../shared/components/search-bar/search-bar.component';
-import { EventCardComponent } from '../../../../shared/components/event-card/event-card.component';
-import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
-import { EventsService } from '../../../../core/services/events.service';
-import { TokenStorageService } from '../../../../core/services/token-storage.service';
-import { Event } from '../../../../models/event.models';
+import { TabsComponent, Tab } from '../../../shared/components/tabs/tabs.component';
+import { SearchBarComponent } from '../../../shared/components/search-bar/search-bar.component';
+import { EventCardComponent } from '../../../shared/components/event-card/event-card.component';
+import { EmptyStateComponent } from '../../../shared/components/empty-state/empty-state.component';
+import { EventsService } from '../../../core/services/events.service';
+import { TokenStorageService } from '../../../core/services/token-storage.service';
+import { Event } from '../../../models/event.models';
 
 @Component({
   selector: 'app-all-events',

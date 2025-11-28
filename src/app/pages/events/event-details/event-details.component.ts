@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ButtonComponent } from '../../../../shared/components/button/button.component';
-import { InviteModalComponent } from '../../../../shared/components/invite-modal/invite-modal.component';
-import { ConfirmModalComponent } from '../../../../shared/components/confirm-modal/confirm-modal.component';
-import { EventsService } from '../../../../core/services/events.service';
-import { TokenStorageService } from '../../../../core/services/token-storage.service';
-import { Event, Attendee } from '../../../../models/event.models';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { InviteModalComponent } from '../../../shared/components/invite-modal/invite-modal.component';
+import { ConfirmModalComponent } from '../../../shared/components/confirm-modal/confirm-modal.component';
+import { EventsService } from '../../../core/services/events.service';
+import { TokenStorageService } from '../../../core/services/token-storage.service';
+import { Event, Attendee } from '../../../models/event.models';
 
 @Component({
   selector: 'app-event-details',
@@ -69,11 +69,11 @@ export class EventDetailsComponent implements OnInit {
 
     // Use sent invitations endpoint to get invited users with their info
     this.eventsService.getSentInvitations(userId, this.eventId).subscribe({
-      next: (attendees) => {
+      next: (attendees: Attendee[]) => {
         console.log('Loaded attendees:', attendees);
         this.attendees = attendees || [];
       },
-      error: (err) => {
+      error: (err: unknown) => {
         console.error('Failed to load attendees:', err);
         this.attendees = [];
       },
@@ -104,7 +104,7 @@ export class EventDetailsComponent implements OnInit {
         this.showDeleteConfirm = false;
         this.router.navigate(['/dashboard']);
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Delete event error:', err);
         this.deleting = false;
         this.showDeleteConfirm = false;

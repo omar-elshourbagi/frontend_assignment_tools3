@@ -6,12 +6,12 @@
   
   <div class="event-details">
     <div class="event-detail" *ngIf="event.time">
-      <span class="icon">🕒</span>
+      <span class="label">Time</span>
       <span class="text">{{ event.time }}</span>
     </div>
     
     <div class="event-detail" *ngIf="event.location">
-      <span class="icon">📍</span>
+      <span class="label">Location</span>
       <span class="text">{{ event.location }}</span>
     </div>
   </div>
@@ -19,7 +19,7 @@
   <p class="event-description" *ngIf="event.description">{{ event.description }}</p>
   
   <div class="event-footer">
-    <span class="view-details">View Details →</span>
+    <span class="view-details">View Details</span>
   </div>
 </div>
 
