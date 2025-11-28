@@ -1,0 +1,8 @@
+<div class="empty-state">
+  <div class="empty-icon">📭</div>
+  <p class="empty-message">{{ message }}</p>
+  <button *ngIf="showButton" class="btn-create-first" (click)="onButtonClick()">
+    {{ buttonText }}
+  </button>
+</div>
+

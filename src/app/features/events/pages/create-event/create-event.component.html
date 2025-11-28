@@ -1,0 +1,119 @@
+<div class="create-event-page">
+  <div class="form-card">
+    <div class="form-header">
+      <h1 class="form-title">Create New Event</h1>
+      <p class="form-subtitle">Fill in the details to create your event</p>
+    </div>
+
+    <form [formGroup]="createForm" (ngSubmit)="submit()" class="event-form">
+      <div class="form-group">
+        <label for="title">Event Title *</label>
+        <input
+          id="title"
+          type="text"
+          formControlName="title"
+          placeholder="e.g., Monthly Meetup"
+          class="form-input"
+        />
+        <div
+          class="error"
+          *ngIf="createForm.controls.title.touched && createForm.controls.title.invalid"
+        >
+          Event title is required
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="date">Date *</label>
+          <input
+            id="date"
+            type="date"
+            formControlName="date"
+            class="form-input"
+          />
+          <div
+            class="error"
+            *ngIf="createForm.controls.date.touched && createForm.controls.date.invalid"
+          >
+            Date is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="time">Time *</label>
+          <input
+            id="time"
+            type="time"
+            formControlName="time"
+            class="form-input"
+          />
+          <div
+            class="error"
+            *ngIf="createForm.controls.time.touched && createForm.controls.time.invalid"
+          >
+            Time is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location *</label>
+        <input
+          id="location"
+          type="text"
+          formControlName="location"
+          placeholder="e.g., Cairo"
+          class="form-input"
+        />
+        <div
+          class="error"
+          *ngIf="createForm.controls.location.touched && createForm.controls.location.invalid"
+        >
+          Location is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description *</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          placeholder="Describe your event..."
+          rows="5"
+          class="form-input"
+        ></textarea>
+        <div
+          class="error"
+          *ngIf="createForm.controls.description.touched && createForm.controls.description.invalid"
+        >
+          Description is required
+        </div>
+      </div>
+
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <div class="form-actions">
+        <app-button
+          type="button"
+          variant="secondary"
+          (onClick)="cancel()"
+          [disabled]="loading"
+        >
+          Cancel
+        </app-button>
+        <app-button
+          type="submit"
+          variant="primary"
+          [loading]="loading"
+          [disabled]="createForm.invalid"
+        >
+          Create Event
+        </app-button>
+      </div>
+    </form>
+  </div>
+</div>
+

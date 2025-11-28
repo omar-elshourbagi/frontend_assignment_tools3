@@ -1,0 +1,114 @@
+<div class="event-details-page">
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading event details...</p>
+  </div>
+
+  <div *ngIf="!loading && event" class="details-card">
+    <div class="details-header">
+      <button class="back-btn" (click)="goBack()">
+        ← Back to Dashboard
+      </button>
+      <app-button
+        variant="outline"
+        (onClick)="openDeleteConfirm()"
+      >
+        Delete Event
+      </app-button>
+    </div>
+
+    <div class="event-info">
+      <h1 class="event-title">{{ event.title }}</h1>
+
+      <div class="event-meta">
+        <div class="meta-item">
+          <span class="icon">📅</span>
+          <div class="meta-content">
+            <span class="meta-label">Date</span>
+            <span class="meta-value">{{ event.date }}</span>
+          </div>
+        </div>
+
+        <div class="meta-item">
+          <span class="icon">🕒</span>
+          <div class="meta-content">
+            <span class="meta-label">Time</span>
+            <span class="meta-value">{{ event.time }}</span>
+          </div>
+        </div>
+
+        <div class="meta-item">
+          <span class="icon">📍</span>
+          <div class="meta-content">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">{{ event.location }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="description-section">
+        <h3>Description</h3>
+        <p class="description-text">{{ event.description }}</p>
+      </div>
+
+      <div class="attendees-section">
+        <div class="attendees-header">
+          <h3>Attendees ({{ attendees.length }})</h3>
+          <button class="btn-invite" (click)="openInviteModal()">
+            + Invite People
+          </button>
+        </div>
+        
+        <div *ngIf="attendees.length === 0" class="no-attendees">
+          <p>No attendees yet</p>
+          <button class="btn-invite-first" (click)="openInviteModal()">
+            Invite Your First Guest
+          </button>
+        </div>
+
+        <div *ngIf="attendees.length > 0" class="attendees-list">
+          <div *ngFor="let attendee of attendees" class="attendee-card">
+            <div class="attendee-avatar">
+              {{ attendee.name?.charAt(0)?.toUpperCase() || '?' }}
+            </div>
+            <div class="attendee-info">
+              <span class="attendee-name">{{ attendee.name || 'Unknown' }}</span>
+              <span class="attendee-email">{{ attendee.email || '' }}</span>
+            </div>
+            <span class="attendee-status" [class]="'status-' + attendee.status">
+              {{ attendee.status }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !event" class="not-found">
+    <h2>Event Not Found</h2>
+    <p>The event you're looking for doesn't exist.</p>
+    <app-button (onClick)="goBack()">
+      Go Back to Dashboard
+    </app-button>
+  </div>
+</div>
+
+<!-- Invite Modal -->
+<app-invite-modal
+  *ngIf="showInviteModal"
+  [eventId]="eventId"
+  [eventTitle]="event?.title || 'Event'"
+  (close)="closeInviteModal()"
+  (invited)="onUserInvited()"
+></app-invite-modal>
+
+<!-- Delete Confirmation Modal -->
+<app-confirm-modal
+  *ngIf="showDeleteConfirm"
+  title="Delete Event?"
+  message="Are you sure you want to delete this event? This action cannot be undone."
+  [loading]="deleting"
+  (confirm)="confirmDelete()"
+  (cancel)="closeDeleteConfirm()"
+></app-confirm-modal>
+

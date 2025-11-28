@@ -1,29 +1,37 @@
-<section class="auth-stage" [class.sign-up-mode]="mode === 'register'">
-  <!-- Forms side-by-side -->
-  <div class="forms">
-    <div class="form login-form">
-      <app-login></app-login>
+<div class="auth-page">
+  <!-- Header matching dashboard -->
+  <header class="auth-header">
+    <div class="header-left">
+      <h1 class="logo">Omar's Planner</h1>
     </div>
-    <div class="form register-form">
-      <app-register></app-register>
-    </div>
-  </div>
+  </header>
 
-  <!-- Sliding overlay with CTA (curved purple) -->
-  <div class="overlay-container">
-    <div class="overlay">
-      <div class="panel panel-left">
-        <h2>Welcome Back!</h2>
-        <p>Enter your personal details to use all of site features</p>
-        <button class="btn outline" (click)="goLogin()">SIGN IN</button>
+  <!-- Auth form container -->
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-toggle">
+        <button 
+          class="toggle-btn" 
+          [class.active]="mode === 'login'"
+          (click)="goLogin()">
+          Sign In
+        </button>
+        <button 
+          class="toggle-btn" 
+          [class.active]="mode === 'register'"
+          (click)="goRegister()">
+          Sign Up
+        </button>
       </div>
-      <div class="panel panel-right">
-        <h2>Hello, Friend!</h2>
-        <p>Register with your personal details to use all of site features</p>
-        <button class="btn outline" (click)="goRegister()">SIGN UP</button>
+
+      <div class="form-wrapper" *ngIf="mode === 'login'">
+        <app-login></app-login>
+      </div>
+      <div class="form-wrapper" *ngIf="mode === 'register'">
+        <app-register></app-register>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 

@@ -1,30 +1,41 @@
 <div class="login-wrapper">
-  <h1 class="title">Sign In</h1>
-  
-  <p class="subtitle">or use your email password</p>
+  <h1 class="title">Welcome Back!</h1>
+  <p class="subtitle">Sign in to your account to continue</p>
 
   <form (ngSubmit)="submit()" [formGroup]="form" class="form">
     <div class="field">
-      <label for="login-email">Email</label>
-      <input id="login-email" type="email" formControlName="email" placeholder="Email" />
+      <label for="login-email">Email Address</label>
+      <input 
+        id="login-email" 
+        type="email" 
+        formControlName="email" 
+        placeholder="Enter your email" 
+      />
       <div class="error" *ngIf="form.controls.email.touched && form.controls.email.invalid">
-        Enter a valid email.
+        Please enter a valid email address
       </div>
     </div>
 
     <div class="field">
       <label for="login-password">Password</label>
-      <input id="login-password" type="password" formControlName="password" placeholder="Password" />
+      <input 
+        id="login-password" 
+        type="password" 
+        formControlName="password" 
+        placeholder="Enter your password" 
+      />
       <div class="error" *ngIf="form.controls.password.touched && form.controls.password.invalid">
-        Password must be at least 6 characters.
+        Password is required
       </div>
     </div>
 
-    <a class="muted link" href="#">Forgot Your Password?</a>
+    <div class="form-footer">
+      <a class="forgot-link" href="#">Forgot password?</a>
+    </div>
 
-    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+    <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
 
-    <button class="btn primary" type="submit" [disabled]="loading">
+    <button class="btn-submit" type="submit" [disabled]="loading || form.invalid">
       {{ loading ? 'Signing in...' : 'Sign In' }}
     </button>
   </form>

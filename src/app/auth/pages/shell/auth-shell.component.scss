@@ -1,86 +1,103 @@
-.auth-stage {
-  position: relative;
-  max-width: 1100px;
-  margin: 40px auto;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  min-height: 560px;
-}
-
-.forms {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.form {
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Overlay container occupies half the card and slides side-to-side */
-.overlay-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 2;
-  transition: transform 600ms ease;
-  border-radius: 260px 0 0 260px;
-}
-
-.auth-stage.sign-up-mode .overlay-container {
-  transform: translateX(-100%);
-  border-radius: 0 260px 260px 0;
-}
-
-.overlay {
-  background: linear-gradient(135deg, #3b2ea1 0%, #5d3fd3 60%, #7b5df0 100%);
-  position: relative;
-  left: -100%;
-  height: 100%;
-  width: 200%;
-  transform: translateX(0);
-  transition: transform 600ms ease;
-}
-
-.auth-stage.sign-up-mode .overlay {
-  transform: translateX(50%);
-}
-
-.panel {
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
+              url('/assets/bg-cityscape.jpg') center/cover no-repeat fixed;
   display: flex;
   flex-direction: column;
+}
+
+.auth-header {
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.auth-container {
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  color: #fff;
-  text-align: center;
-  padding: 32px;
+  padding: 40px 20px;
 }
 
-.panel-left { position: absolute; left: 0; width: 50%; height: 100%; }
-.panel-right { position: absolute; right: 0; width: 50%; height: 100%; }
+.auth-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+}
 
-.btn.outline {
-  pointer-events: auto;
+.auth-toggle {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 18px;
+  border: none;
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-weight: 700;
+  color: #6b7280;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 960px) {
-  .forms { grid-template-columns: 1fr; }
-  .overlay-container { display: none; }
-  .auth-stage { min-height: auto; }
+.toggle-btn:hover {
+  color: #111827;
+  background: #f9fafb;
+}
+
+.toggle-btn.active {
+  color: #ff6b35;
+}
+
+.toggle-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #ff6b35;
+}
+
+.form-wrapper {
+  padding: 40px;
+}
+
+@media (max-width: 640px) {
+  .auth-header {
+    padding: 20px;
+  }
+  
+  .auth-card {
+    max-width: 100%;
+    margin: 0 16px;
+  }
+  
+  .form-wrapper {
+    padding: 24px;
+  }
 }
 
 
