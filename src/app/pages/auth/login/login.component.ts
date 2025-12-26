@@ -41,10 +41,14 @@ export class LoginComponent {
         this.loading = false;
         this.router.navigate(['/dashboard']);
       },
-      error: (err) => {
+      error: (err: unknown) => {
         console.log('Login error:', err);
         this.loading = false;
-        this.errorMessage = err?.error?.detail || 'Login failed. Please try again.';
+        if (typeof err === 'object' && err !== null && 'error' in err && typeof (err as any).error === 'object' && (err as any).error !== null && 'detail' in (err as any).error) {
+          this.errorMessage = (err as any).error.detail;
+        } else {
+          this.errorMessage = 'Login failed. Please try again.';
+        }
       },
     });
   }
