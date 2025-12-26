@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -60,10 +60,14 @@ export class RegisterComponent {
         this.successMessage = 'Account created successfully. You can now log in.';
         setTimeout(() => this.router.navigate(['/auth/login']), 1000);
       },
-      error: (err) => {
+      error: (err: unknown) => {
         console.log('Signup error:', err);
         this.loading = false;
-        this.errorMessage = err?.error?.detail || 'Signup failed. Please try again.';
+        if (typeof err === 'object' && err !== null && 'error' in err && typeof (err as any).error === 'object' && (err as any).error !== null && 'detail' in (err as any).error) {
+          this.errorMessage = (err as any).error.detail;
+        } else {
+          this.errorMessage = 'Signup failed. Please try again.';
+        }
       },
     });
   }
