@@ -56,7 +56,7 @@ export class AllEventsComponent implements OnInit {
         this.organizedEvents = events || [];
         this.loadInvitedEvents(uid);
       },
-      error: (err) => {
+      error: (err: unknown) => {
         console.error('Error loading organized events:', err);
         this.organizedEvents = [];
         this.loadInvitedEvents(uid);
@@ -75,7 +75,7 @@ export class AllEventsComponent implements OnInit {
         this.updateTabs();
         this.loading = false;
       },
-      error: (err) => {
+      error: (err: unknown) => {
         console.error('Error loading invited events:', err);
         this.invitedEvents = [];
         this.allEvents = [...this.organizedEvents];
