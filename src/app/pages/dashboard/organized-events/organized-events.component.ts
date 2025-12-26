@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { TabsComponent, Tab } from '../../../../shared/components/tabs/tabs.component';
-import { SearchBarComponent } from '../../../../shared/components/search-bar/search-bar.component';
-import { EventCardComponent } from '../../../../shared/components/event-card/event-card.component';
-import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
-import { EventsService } from '../../../../core/services/events.service';
-import { TokenStorageService } from '../../../../core/services/token-storage.service';
-import { Event } from '../../../../models/event.models';
+import { TabsComponent, Tab } from '../../../shared/components/tabs/tabs.component';
+import { SearchBarComponent } from '../../../shared/components/search-bar/search-bar.component';
+import { EventCardComponent } from '../../../shared/components/event-card/event-card.component';
+import { EmptyStateComponent } from '../../../shared/components/empty-state/empty-state.component';
+import { EventsService } from '../../../core/services/events.service';
+import { TokenStorageService } from '../../../core/services/token-storage.service';
+import { Event } from '../../../models/event.models';
 
 @Component({
   selector: 'app-organized-events',
@@ -49,13 +49,14 @@ export class OrganizedEventsComponent implements OnInit {
     const uid = parseInt(userId, 10);
 
     this.eventsService.getOrganizedEvents(uid).subscribe({
-      next: (events) => {
+      next: (events: Event[]) => {
         this.organizedEvents = events || [];
         this.filteredEvents = [...this.organizedEvents];
         this.loadInvitedCount(uid);
         this.loading = false;
       },
-      error: () => {
+      error: (err: unknown) => {
+        console.error('Error loading organized events:', err);
         this.organizedEvents = [];
         this.filteredEvents = [];
         this.loading = false;
@@ -65,11 +66,12 @@ export class OrganizedEventsComponent implements OnInit {
 
   private loadInvitedCount(userId: number): void {
     this.eventsService.getInvitedEvents(userId).subscribe({
-      next: (events) => {
+      next: (events: Event[]) => {
         this.invitedCount = events?.length || 0;
         this.updateTabs();
       },
-      error: () => {
+      error: (err: unknown) => {
+        console.error('Error loading invited events count:', err);
         this.invitedCount = 0;
         this.updateTabs();
       },
