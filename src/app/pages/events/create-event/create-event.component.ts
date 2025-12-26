@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ButtonComponent } from '../../../../shared/components/button/button.component';
-import { EventsService } from '../../../../core/services/events.service';
-import { TokenStorageService } from '../../../../core/services/token-storage.service';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { EventsService } from '../../../core/services/events.service';
+import { TokenStorageService } from '../../../core/services/token-storage.service';
 
 @Component({
   selector: 'app-create-event',
@@ -54,9 +54,13 @@ export class CreateEventComponent {
         this.loading = false;
         this.router.navigate(['/dashboard']);
       },
-      error: (err) => {
+      error: (err: unknown) => {
         this.loading = false;
-        this.errorMessage = err?.error?.detail || 'Failed to create event. Please try again.';
+        if (typeof err === 'object' && err !== null && 'error' in err && typeof (err as any).error === 'object' && (err as any).error !== null && 'detail' in (err as any).error) {
+          this.errorMessage = (err as any).error.detail;
+        } else {
+          this.errorMessage = 'Failed to create event. Please try again.';
+        }
       },
     });
   }
