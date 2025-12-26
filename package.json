@@ -4,30 +4,26 @@
   "private": true,
   "scripts": {
     "start": "ng serve --host 0.0.0.0 --port 8080",
-    "build": "ng build"
+    "build": "ng build",
+    "test": "ng test"
   },
   "dependencies": {
-    "@angular/animations": "20.3.9",
-    "@angular/common": "20.3.9",
-    "@angular/compiler": "20.3.9",
-    "@angular/core": "20.3.9",
-    "@angular/forms": "20.3.9",
-    "@angular/platform-browser": "20.3.9",
-    "@angular/platform-browser-dynamic": "20.3.9",
-    "@angular/router": "20.3.9",
-    "rxjs": "^7.8.2",
+    "@angular/animations": "^17.3.8",
+    "@angular/common": "^17.3.8",
+    "@angular/compiler": "^17.3.8",
+    "@angular/core": "^17.3.8",
+    "@angular/forms": "^17.3.8",
+    "@angular/platform-browser": "^17.3.8",
+    "@angular/platform-browser-dynamic": "^17.3.8",
+    "@angular/router": "^17.3.8",
+    "rxjs": "^7.8.1",
     "tslib": "^2.6.2",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.14.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "20.3.9",
-    "@angular/cli": "20.3.9",
-    "@angular/compiler-cli": "20.3.9",
-    "sass": "^1.77.0",
-    "typescript": "~5.8.2"
-  },
-  "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=10.0.0"
+    "@angular-devkit/build-angular": "^17.3.8",
+    "@angular/cli": "^17.3.8",
+    "@angular/compiler-cli": "^17.3.8",
+    "typescript": "~5.4.5"
   }
 }
